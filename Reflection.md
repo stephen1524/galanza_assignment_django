@@ -1,0 +1,3 @@
+Reflection:
+
+The challenges on the setup I encountered is a lot, starting from the terminal and goes to repositories. But I struggled much in the repositories, for the reaon that I don’t know much about its features that are there, and I canoot totally understand it well at this time. For example, when Im trying to some changes in VScode and it did not apply on my repository, I prompt it again in the terminal however, it cannot commit the other folder I select. Intstead, an error appear that I already have commit and cannot prompt the “git commit -m” so that the changes will also apply on my repository folder in Github. However, I will study more and listen to the information I will gather in internet and advice I can listen to you Sir.
