@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Django Announcements</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'announcements/style.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/announcements/">Announcements</a>
+    </nav>
+    <hr>
+    
+    {% block content %}{% endblock %}
+
+    <script src="{% static 'announcements/script.js' %}"></script>
+</body>
+</html>
