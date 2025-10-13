@@ -1,0 +1,31 @@
+I<!DOCTYPE html>
+<html>
+<head>
+    <title>Library App</title>
+</head>
+<body>
+    <h1>📚 Library Books</h1>
+    <ul>
+        {% for book in books %}
+            <li>
+                <strong>
+                    <a href="{% url 'book_detail' book.id %}">{{ book.title }}</a>
+                </strong> 
+                by {{ book.author.name }} <br>
+                Categories:
+                {% for cat in book.categories.all %}
+                    {{ cat.name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+                <br>Published: {{ book.published }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h2>🏷️ Categories</h2>
+    <ul>
+        {% for category in categories %}
+            <li>{{ category.name }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
