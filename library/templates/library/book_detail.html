@@ -1,10 +1,40 @@
 {% extends "announcements/base.html" %}
 
 {% block content %}
-  <h2>{{ book.title }}</h2>
-  <p><strong>Author:</strong> {{ book.author }}</p>
-  <p><strong>Published:</strong> {{ book.published_date }}</p>
-  <p><strong>Description:</strong> {{ book.description }}</p>
+<h2>{{ book.title }}</h2>
+<p><strong>Author:</strong> {{ book.author }}</p>
+<p><strong>Published:</strong> {{ book.published_date }}</p>
+<p><strong>Description:</strong> {{ book.description }}</p>
 
-  <a href="{% url 'book_list' %}">← Back to all books</a>
+<hr>
+
+<h3>Comments</h3>
+{% for comment in comments %}
+  <div style="margin-bottom: 10px; border-bottom: 1px solid #ddd; padding: 5px 0;">
+    <strong>{{ comment.name }}</strong> said:<br>
+    {{ comment.body }}<br>
+    <small><i>{{ comment.created_at }}</i></small>
+  </div>
+{% empty %}
+  <p>No comments yet. Be the first to comment!</p>
+{% endfor %}
+
+<hr>
+
+<h4>Add a Comment</h4>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Submit</button>
+</form>
+
+{% if form.errors %}
+  <div style="color: red;">
+    <strong>Please correct the errors above.</strong>
+  </div>
+{% endif %}
+
+<hr>
+
+<a href="{% url 'book_list' %}">&larr; Back to all books</a>
 {% endblock %}
